@@ -1,0 +1,32 @@
+<div class="modal fade" id="modal-create">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Create</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>   <!-- it add a X close sign-->    
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'create' %}" method="post">    <!--#call create function in views when create buton clicked-->
+                    {% csrf_token %}    <!--django security you need to have it after form when methon="post"-->
+                    <div class="form-group">
+                        <labal for="movieName">Name</labal>
+                        <input type="text" class="form-control" name="name" placeholder="Enter name" id="movieName" required />
+                    </div>
+                    <div class="form-group">
+                            <labal for="moviePicture">Picture</labal>
+                            <input type="text" class="form-control" name="url" placeholder="Image URL" id="moviePicture"  />
+                    </div>
+                    <div class="form-group">required
+                            <labal for="movieRating">Rating</labal>
+                            <input type="number" class="form-control" name="rating" placeholder="1-10" id="movieRating" min="1" max="10" required /> <!--min and max to control number-->
+                    </div>
+                    <div class="form-group">
+                            <labal for="movieNotese">Notes</labal>
+                            <textarea name="notes" id="movieNotes" class="form-control"> </textarea>    
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create new movie</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
